@@ -2,8 +2,45 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
-  background-color: antiquewhite;
-  color: brown;
-  text-align: center;
-  margin-top: 100px;
+  background-color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid green;
+}
+
+#profile-icon-image {
+  width: 5em; 
+  background-color: whitesmoke; 
+  border-radius: 50%;
+}
+
+#user-name {
+  font-size: 14px;
+  line-height: .5em;
+}
+
+#follow-count {
+  margin-top: -.5em;
+  font-size: 14px;
+}
+
+#container1-profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // border: 1px solid blue;
+  width: 90em;
+}
+
+#container2-icons {
+  // border: 1px solid hotpink;
+  width: 90em;
+}
+
+#container4-create-ask {
+  // border: 1px solid red;
+  margin-top: 8em;
 }
