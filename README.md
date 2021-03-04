@@ -40,13 +40,12 @@ Hello, and welcome to my app, Almost-Pinterest. It is a simplified version of th
 * As a user I should be able to use your app on the internet - it should be deployed using Netlify.
 * As a developer, I want to see an amazing README for this project.
 
-## Loom Video of Tamagotchi!
-https://www.loom.com/share/3d05d8429097455895b5c406cec7382f
+## Loom Video of Almost Pinterest
+
 
 ## Relevant Links
 - [Check out the deployed site](NETLIFY)
-- [Figma WireFrame](https://www.figma.com/file/mdbOP08dJbNlJonFm34elI/Almost-Pinterest?node-id=0%3A1)
-- [LucidChart ERD](https://lucid.app/lucidchart/df341155-9f7f-47a6-88a4-15a8ec907d35/edit?page=0_0#)
+- [LucidChart ERD | Wireframe](https://lucid.app/lucidchart/df341155-9f7f-47a6-88a4-15a8ec907d35/edit?page=0_0#)
 - [Project Board](https://lucid.app/lucidchart/df341155-9f7f-47a6-88a4-15a8ec907d35/edit?page=0_0#)
 
 
