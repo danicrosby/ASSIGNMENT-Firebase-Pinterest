@@ -5,6 +5,20 @@ body {
   background-color: white;
 }
 
+#login-form-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 2em;
+}
+
+#google-auth {
+  margin-right: 1em;
+}
+
+.nav-item {
+  margin-left: 1.8em;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -12,7 +26,7 @@ main {
 }
 
 #profile-icon-image {
-  width: 5em; 
+  width: 8em; 
   background-color: whitesmoke; 
   border-radius: 50%;
 }
@@ -32,15 +46,9 @@ main {
   flex-direction: column;
   justify-content: center;
   // border: 1px solid blue;
-  width: 90em;
-}
-
-#container2-icons {
-  // border: 1px solid hotpink;
-  width: 90em;
 }
 
 #container4-create-ask {
   // border: 1px solid red;
-  margin-top: 8em;
+  margin-top: 4em;
 }
