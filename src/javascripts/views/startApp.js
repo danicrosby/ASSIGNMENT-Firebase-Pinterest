@@ -4,8 +4,8 @@ import loginButton from '../components/loginButton';
 import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
 
-const startApp = () => {
-  domBuilder();
+const startApp = (user) => {
+  domBuilder(user);
   navBar();
   loginButton();
   logoutButton();

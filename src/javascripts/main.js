@@ -4,12 +4,9 @@ import checkLoginStatus from './helpers/auth';
 import 'bootstrap'; // import bootstrap elements and js
 
 import '../styles/main.scss';
-import startApp from './views/startApp';
 
 const init = () => {
-  startApp();
-  // USE WITH FIREBASE AUTH
-  checkLoginStatus();
+  checkLoginStatus(); // USE WITH FIREBASE AUTH
 };
 
 init();
