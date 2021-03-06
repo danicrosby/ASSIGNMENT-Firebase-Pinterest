@@ -10,13 +10,6 @@ Hello, and welcome to my app, Almost-Pinterest. It is a simplified version of th
 ## Functionality Includes: 
 
 ### Part 1: ERDs and Authentication
-* Create an ERD for pinterest (do this in studygroup)
-* Clone this repo
-* Create a setup branch
-* Do all the stuff needed when setting up the project. Reference the webpack instructions if needed. These include making the updates to the `.env` file
-* Create a new firebase project, database, and enable google authentication, etc.
-* Create an authentication branch and add a navbar with logout button, and place the google login button somewhere for you to test
-* We just want you to get your auth setup by yourself.**
 * When your user is **logged out** they should see the navbar with only a brand.  And an h1 on the page that says PINTEREST (make a `home` component for this)
 * When your user is logged in they should see a navbar with a brand and a logout button and an H1 on the page that says Boards (make a `boards` component for this)
 

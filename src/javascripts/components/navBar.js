@@ -2,7 +2,7 @@ const navBar = () => {
   document.querySelector('#navigation').innerHTML = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-container">
 
-    <div><a href=""><img src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Pinterest-512.png" style="width: 1.5em; margin-left: 2em"></div></a>
+    <div><a href=""><img src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Pinterest-512.png" style="width: 1.8em; margin-left: 2em"></div></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span></button>
 
@@ -23,10 +23,12 @@ const navBar = () => {
     </div>
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active"><div><a href=""><img src="https://cdn1.iconfinder.com/data/icons/app-user-interface-glyph/64/notification_user_interface_app_alarm_bell-512.png" style="width: 1.5em"></div></a></li>
-      <li class="nav-item active"><div><a href=""><img src="https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/chat_bubble_notification_message-2-512.png" style="width: 1.5em"></div></a></li>
-      <li class="nav-item active"><div><a href=""><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-6/128/profile-circle2-512.png" style="width: 1.5em"></div></a></li>
+      <li class="nav-item active mt-1"><div><a href=""><img src="https://cdn1.iconfinder.com/data/icons/app-user-interface-glyph/64/notification_user_interface_app_alarm_bell-512.png" style="width: 1.8em"></div></a></li>
+      <li class="nav-item active mt-1"><div><a href=""><img src="https://cdn4.iconfinder.com/data/icons/music-ui-solid-24px/24/chat_bubble_notification_message-2-512.png" style="width: 1.8em"></div></a></li>
+      <li class="nav-item active mt-1"><div><a href=""><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-6/128/profile-circle2-512.png" style="width: 1.8em"></div></a></li>
     </ul>
+
+    <div id="login-form-container" style="margin-left: 2em"></div>
 
   </nav>`;
 };

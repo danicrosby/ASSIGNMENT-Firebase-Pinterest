@@ -1,11 +1,8 @@
-const profilePage = () => {
-  document.querySelector('#profile').innerHTML = `
+const boardsPage = () => {
+  document.querySelector('#boards').innerHTML = `
   <!-- CONTAINER 1 -->
   <div class="container-fluid mt-2 mx-auto mb-2" id="container1-profile-info">
-    <center><div id="profile-icon-container"></div><a href=""><img src="../../styles/images/profile.png" id="profile-icon-image"></a></div></center>
-    <center><h3>Dani Crosby</h3></center>
-    <center><p id="user-name">@dani.crosby1111</p></center>
-    <center><div id="follow-count"><span>0 following .</span><span> 0 followers</span></center></div>
+    <center><h1>Boards</h1></center>
   </div>
   
   
@@ -23,20 +20,17 @@ const profilePage = () => {
   <div class="container-fluid d-flex justify-content-start mt-2" id="container3-cards-boards">
   
     <div class="card mr-2" style="width: 18em; height: 12em">
-      <div class="card-body">
-      </div>
+      <div class="card-body"></div>
       <div class="card-footer bg-transparent">All Pins</div>
     </div>
   
     <div class="card mr-2" style="width: 18em; height: 12em">
-      <div class="card-body">
-      </div>
+      <div class="card-body"></div>
       <div class="card-footer bg-transparent">Personal Board</div>
     </div>
   
     <div class="card mr-2" style="width: 18em; height: 12em">
-      <div class="card-body">
-      </div>
+      <div class="card-body"></div>
       <div class="card-footer bg-transparent">Public Board</div>
     </div>
   
@@ -73,4 +67,4 @@ const profilePage = () => {
   </div>`;
 };
 
-export default profilePage;
+export default boardsPage;
