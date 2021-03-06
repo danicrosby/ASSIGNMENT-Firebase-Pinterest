@@ -28,14 +28,6 @@ const navBar = () => {
       <li class="nav-item active"><div><a href=""><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-6/128/profile-circle2-512.png" style="width: 1.5em"></div></a></li>
     </ul>
 
-
-    <div class="dropdown ml-3 mr-2">
-      <button class="btn btn-light bt-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><div></div></button>
-      <div class="dropdown-menu dropdown-menu">
-        <button class="dropdown-item btn-danger" type="button"><button id="google-auth" class="btn btn-sm btn-danger">Logout</button></button>
-      </div>
-    </div>
-
   </nav>`;
 };
 
