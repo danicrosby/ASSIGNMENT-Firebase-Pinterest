@@ -3,19 +3,15 @@
 Hello, and welcome to my app, Almost-Pinterest. It is a simplified version of the popular website Pinterest, a visual discovery engine for finding ideas like recipes, home, and style inspiration. When a user discovers Pins they love, they can save them to boards to keep their ideas organized and easy to find. This simplified version includes a way for users to create boards and can pin URLs to the boards.
 # Almost Pinterest [![Netlify Status] BADGE
 #### User Stories
-* When a user is logged in they should see a navbar with a brand and a logout button and an H1 on the page that says Boards.
+* When a user navigates to the page they should see a navbar with a brand and a login in button and an H1 on the page that says 'Pinterest;.
+* When a user is logged in they should see a navbar with a brand and a logout button and an H1 on the page that says 'Boards'.
 * As a user, when I am logged in and the page loads, I should see all the boards that belong to me.
 * As a user, when I click on one of my boards, I should see a single board view that shows all pins for that board.
 * As a user, when I am on the single board view, there should be some way to go back to all my boards.
-* When a user is logged out they should see the navbar with only a brand icon and an h1 on the page that says PINTEREST.
+* When a user logs out out they should see the navbar with only a brand icon and an h1 on the page that says PINTEREST.
 
 ## Functionality Includes: 
-
-### Part 1: ERDs and Authentication
- (make a `home` component for this)
-
-
-### Part 2: READ
+## Instructions:
 #### Setup
 * Create some json data
 * Import that data into firebase
