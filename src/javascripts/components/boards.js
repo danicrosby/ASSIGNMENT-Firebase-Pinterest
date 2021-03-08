@@ -1,4 +1,4 @@
-const showBoards = () => {
+const showBoards = (array) => {
   document.querySelector('#boards').innerHTML = `
   <!-- CONTAINER 1 -->
   <div class="container-fluid mt-2 mx-auto mb-2" id="container1-profile-info">
