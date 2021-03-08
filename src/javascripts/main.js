@@ -4,7 +4,7 @@ import 'bootstrap';
 import '../styles/main.scss';
 
 const init = () => {
-  checkLoginStatus(); 
+  checkLoginStatus();
 };
 
 init();

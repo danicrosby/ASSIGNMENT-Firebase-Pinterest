@@ -1,4 +1,4 @@
-const boardsPage = () => {
+const showBoards = () => {
   document.querySelector('#boards').innerHTML = `
   <!-- CONTAINER 1 -->
   <div class="container-fluid mt-2 mx-auto mb-2" id="container1-profile-info">
@@ -67,4 +67,4 @@ const boardsPage = () => {
   </div>`;
 };
 
-export default boardsPage;
+export default showBoards;

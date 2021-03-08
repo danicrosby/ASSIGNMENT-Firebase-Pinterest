@@ -1,9 +1,9 @@
-import boardsPage from '../components/boards';
 import domBuilder from '../components/domBuilder';
 import logoutButton from '../components/buttons/logoutButton';
 import navBar from '../components/navBar';
 import loginButton from '../components/buttons/loginButton';
 import getPins from '../helpers/data/pinData';
+import showBoards from '../components/boards';
 
 const startApp = (user) => {
   domBuilder(user);
@@ -11,7 +11,7 @@ const startApp = (user) => {
   navBar();
   loginButton();
   logoutButton();
-  boardsPage();
+  showBoards();
   getPins();
 };
 

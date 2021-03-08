@@ -12,9 +12,7 @@ Hello, and welcome to my app, Almost-Pinterest. It is a simplified version of th
 
 ## Functionality Includes: 
 ## Instructions:
-#### Setup
-* Create some json data
-* Import that data into firebase
+
 ### Part 3: DELETE
 * As a user, I should be able to delete a pin from one of my boards.
 * As a user, I should be able to delete one of my boards.
