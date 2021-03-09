@@ -17,8 +17,8 @@ const navBar = () => {
       <input type="text" class="form-control w-25 ml-2" aria-label="Text input with dropdown button" placeholder="search">
       <div class="dropdown show"><a class="btn btn-secondary dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Pins </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item btn-light" href="#">All Pins</a>
-        <a class="dropdown-item btn-light" href="#">All Boards</a>
+        <a class="dropdown-item btn-light" href="#" id="add-pin-btn">All Pins</a>
+        <a class="dropdown-item btn-light" href="#" id="add-board-btn">All Boards</a>
       </div>
     </div>
 
