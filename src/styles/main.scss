@@ -25,15 +25,12 @@ main {
   // border: 1px solid green;
 }
 
-#store {
+#overview {
   display: flex;
   justify-content: flex-start;
+  margin-left: 2em;
 }
 
-#home-store {
-  display: flex;
-  justify-content: center;
-}
 #profile-icon-image {
   width: 8em; 
   background-color: whitesmoke; 

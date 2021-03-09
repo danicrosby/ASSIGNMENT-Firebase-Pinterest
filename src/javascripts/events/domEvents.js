@@ -1,16 +1,16 @@
 // PINS = BOOKS //
 // BOARDS = AUTHORS/
-import { showPins } from '../components/pins';
+import { showPins } from '../components/showPins';
 import { deletePin } from '../helpers/data/pinData';
 
-const domEvents = (uid) => {
+const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
-    // CLICK EVENT FOR DELETING A PIN
     if (e.target.id.includes('delete-pin')) {
+      // CLICK EVENT FOR DELETING A PIN
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const firebaseKey = e.target.id.split('--')[1];
-        deletePin(firebaseKey, uid).then((pinsArray) => showPins(pinsArray));
+        deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
       }
     }
 

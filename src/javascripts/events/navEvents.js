@@ -1,8 +1,8 @@
 // PINS = pins //
 // BOARDS = Authors//
 
-import { emptyBoards, showBoards } from '../components/boards';
-import { emptyPins, showPins } from '../components/pins';
+import { emptyBoards, showBoards } from '../components/showBoards';
+import { emptyPins, showPins } from '../components/showPins';
 import signOut from '../helpers/signOut';
 import { getBoards } from '../helpers/data/boardData';
 import { getPins } from '../helpers/data/pinData';
@@ -22,7 +22,7 @@ const navigationEvents = (uid) => {
   });
 
   // BOARDS
-  document.querySelector('#all-boards').addEventListener('click', () => {
+  document.querySelector('#boards').addEventListener('click', () => {
     getBoards(uid).then((boardArray) => {
       if (boardArray.length) {
         showBoards(boardArray);

@@ -1,25 +1,28 @@
 // BOARDS = AUTHORS
-
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
-// GET BOARD
+// GET BOARDS
 const getBoards = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/boards.json`)
-    .then((response) => resolve(response.data))
+    .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
 // DELETE BOARD
-const deleteBoard = () => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/boards.json `)
+const deleteBoard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/boards/${firebaseKey}.json`)
     .then(() => getBoards().then((boardsArray) => resolve(boardsArray)))
     .catch((error) => reject(error));
 });
-// CREATE BOARD
-// UPDATE SEARCH
-// SEARCH BOOKS
 
-export { getBoards, deleteBoard };
+// GET SINGLE BOARD
+const getSingleBoard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/boards/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+export { getBoards, getSingleBoard, deleteBoard };
