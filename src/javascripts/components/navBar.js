@@ -10,15 +10,15 @@ const navBar = () => {
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active"><a class="nav-link" href="https://www.pinterest.com/">Home <span class="sr-only">(current)</span></a></li>
         <li class="nav-item active"><a class="nav-link" href="https://www.pinterest.com/today/">Today <span class="sr-only"></span></a></li>
-        <li class="nav-item active" style="margin-right: .5em"><a class="nav-link" href="https://www.pinterest.com/following">Following <span class="sr-only"></span></a></li>
+        <li class="nav-item active" style="margin-right: .5em"><a class="nav-link" href="#">Favorite <span class="sr-only"></span></a></li>
       </ul>
       
     <div class="input-group">
       <input type="text" class="form-control w-25 ml-2" aria-label="Text input with dropdown button" placeholder="search">
       <div class="dropdown show"><a class="btn btn-secondary dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Pins </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item btn-light" href="#" id="add-pin-btn">All Pins</a>
-        <a class="dropdown-item btn-light" href="#" id="add-board-btn">All Boards</a>
+      <a class="dropdown-item btn-light" href="# "id="all-pins">All Pins</a>
+      <a class="dropdown-item btn-light" href="# "id="all-boards">All Boards</a>
       </div>
     </div>
 

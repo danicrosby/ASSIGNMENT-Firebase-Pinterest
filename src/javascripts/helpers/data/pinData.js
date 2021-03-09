@@ -14,8 +14,13 @@ const getPins = () => new Promise((resolve, reject) => {
 });
 
 // DELETE PIN
+const deletePin = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/pins.json/${firebaseKey}`)
+    .then(() => getPins(uid).then((pinsArray) => resolve(pinsArray)))
+    .catch((error) => reject(error));
+});
 // CREATE PIN
 // UPDATE SEARCH
 // SEARCH BOOKS
 
-export default getPins;
+export { getPins, deletePin };

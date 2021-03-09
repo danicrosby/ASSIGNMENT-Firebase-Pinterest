@@ -1,7 +1,7 @@
 // PINS = BOOKS
 
 const showPins = (array) => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Pin</button>';
+  document.querySelector('#add-button').innerHTML = '<center><button class="btn btn-success btn-sm mb-4" id="add-pin-btn">Add A Pin</button></center>';
 
   document.querySelector('#store').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
@@ -13,15 +13,15 @@ const showPins = (array) => {
         <div class="card-body">
         <h6 class="card-title">${item.pin_title}</h6>
         <hr>
-        <button class="btn btn-danger" data-toggle="modal" data-target="#formModal" id="edit-book-btn--${item.firebaseKey}">Edit Book</button>
-        <button class="btn btn-dark" id="delete-book--${item.firebaseKey}">Delete Pin</button>
+        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#formModal" id="edit-pin-btn--${item.firebaseKey}">Edit Pin</button>
+        <button class="btn btn-sm btn-dark" id="delete-pin--${item.firebaseKey}">Delete Pin</button>
         </div>
       </div>`;
   });
 };
 
 const emptyPins = () => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-pin-btn">Add A Pin</button>';
   document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#store').innerHTML = '<h1 class="text-white">No Items</h1>';
 };
