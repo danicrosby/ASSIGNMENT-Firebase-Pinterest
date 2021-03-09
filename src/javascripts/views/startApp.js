@@ -1,7 +1,7 @@
 // PINS = pins
 // BOARDS = AUTHORS
 
-import { showPins, emptyPins } from '../components/pins';
+import { emptyPins, showPins } from '../components/pins';
 import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/domBuilder';
 import navBar from '../components/navBar';
@@ -14,7 +14,7 @@ const startApp = (userObject) => {
   domEvents();
   navBar();
   logoutButton();
-  navigationEvents();
+  navigationEvents(userObject.uid);
   getPins(userObject.uid).then((pinsArray) => {
     if (pinsArray.length) {
       showPins(pinsArray);

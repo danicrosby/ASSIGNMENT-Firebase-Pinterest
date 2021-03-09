@@ -7,20 +7,26 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 // GET PINS
-const getPins = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/pins.json`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch((error) => reject(error));
+const getPins = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    }).catch((error) => reject(error));
 });
 
 // DELETE PIN
 const deletePin = (firebaseKey, uid) => new Promise((resolve, reject) => {
-  axios.delete(`${dbUrl}/pins.json/${firebaseKey}`)
+  axios.delete(`${dbUrl}/pins/${firebaseKey}.json`)
     .then(() => getPins(uid).then((pinsArray) => resolve(pinsArray)))
     .catch((error) => reject(error));
 });
+
 // CREATE PIN
 // UPDATE SEARCH
-// SEARCH BOOKS
+// SEARCH PINS
 
 export { getPins, deletePin };
