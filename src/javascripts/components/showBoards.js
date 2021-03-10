@@ -5,6 +5,7 @@ const showBoards = (array) => {
   <div class="container-fluid mt-2 mx-auto mb-2" id="boards-overview">
     <center><h4>Boards</h4></center>
   </div>`;
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-dark btn-sm mb-4" id="add-board-btn">Add A Board</button>';
 
   document.querySelector('#overview').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';

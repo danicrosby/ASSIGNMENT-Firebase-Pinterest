@@ -3,6 +3,7 @@ const domBuilder = () => {
     <div id="navigation"></div>
     <div id="main-container"></div>
     <div id="title"></div>
+    <div id="add-button"></div>
     <div id="add-icons"></div>
     <div id="overview"></div>
     <div id="form-container"></div>`;

@@ -9,7 +9,7 @@ const deleteBoardPins = (boardId, uid) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-const boardpinInfo = (boardId) => new Promise((resolve, reject) => {
+const boardPinInfo = (boardId) => new Promise((resolve, reject) => {
   const board = getSingleBoard(boardId);
   const boardpins = getBoardPins(boardId);
   Promise.all([board, boardpins]);
@@ -21,4 +21,4 @@ const boardpinInfo = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export { deleteBoardPins, boardpinInfo };
+export { deleteBoardPins, boardPinInfo };
