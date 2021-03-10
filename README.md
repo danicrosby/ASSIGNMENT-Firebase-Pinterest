@@ -34,7 +34,7 @@ Hello, and welcome to my app, Almost-Pinterest. It is a simplified version of th
 
 ## Relevant Links
 - [Check out the deployed site](NETLIFY)
-- [LucidChart ERD | Wireframe](https://app.lucidchart.com/lucidchart/invitations/accept/b1fafa5c-ca3b-49e7-a849-e45c3cd14243)
+- [LucidChart ERD | Wireframe](https://app.lucidchart.com/lucidchart/0f011832-9e4d-4de2-909d-ee4861d86393/edit?shared=true&page=900gQMxo9jeG#)
 - [Project Board](https://lucid.app/lucidchart/df341155-9f7f-47a6-88a4-15a8ec907d35/edit?page=0_0#)
 
 
