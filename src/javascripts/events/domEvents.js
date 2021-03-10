@@ -16,23 +16,23 @@ import {
 
 // CLICK EVENTS
 
-const domEvents = (uid) => {
+const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
     // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
-      if (window.confirm('Want to delete?')) {
+      if (window.confirm('Are You Sure?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
       }
     }
 
-    // SHOW FOR TO ADD PIN
+    // EVENT TO SHOW FORM TO ADD PIN
     if (e.target.id.includes('add-pin-btn')) {
       addPinForm();
     }
 
-    // SUBMIT EVENT FORM TO ADD PIN
+    // EVENT TO SUBMIT FORM TO ADD PIN
     if (e.target.id.includes('submit-pin')) {
       e.preventDefault();
       const pinObject = {
@@ -41,20 +41,19 @@ const domEvents = (uid) => {
         price: document.querySelector('#price').value,
         sale: document.querySelector('#sale').checked,
         board_id: document.querySelector('#board').value,
-        uid
       };
 
       createPin(pinObject).then((pinsArray) => showPins(pinsArray));
     }
 
-    // SHOW MODAL TO ADD PIN
+    // EVENT FOR MODAL TO ADD PIN
     if (e.target.id.includes('edit-pin-btn')) {
       const firebaseKey = e.target.id.split('--')[1];
       formModal('Update Pin');
       getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
     }
 
-    // EDIT PIN
+    // EVENT TO EDIT PIN
     if (e.target.id.includes('update-pin')) {
       const firebaseKey = e.target.id.split('--')[1];
       e.preventDefault();
@@ -71,16 +70,15 @@ const domEvents = (uid) => {
       $('#formModal').modal('toggle');
     }
 
-    // DELETE BOARD
+    // EVENT TO DELETE BOARD & PINS
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
-      if (window.confirm('Want to delete?')) {
+      if (window.confirm('Are You Sure?')) {
         const boardId = e.target.id.split('--')[1];
-        console.warn(boardId);
-        deleteBoardPins(boardId, uid).then((boardsArray) => showBoards(boardsArray));
+        deleteBoardPins(boardId).then((boardsArray) => showBoards(boardsArray));
       }
     }
-
+    // EVENT TO DELETE BOARD
     if (e.target.includes('board-name-title')) {
       const boardId = e.target.id.split('--')[1];
       boardPinInfo(boardId).then((boardInfoObject) => {
@@ -89,6 +87,7 @@ const domEvents = (uid) => {
       });
     }
 
+    // EVENT TO DELETE BOARD
     if (e.target.id.includes('board-name-title')) {
       const boardId = e.target.id.split('--')[1];
       boardInfo(boardId).then((boardInfoObject) => {
@@ -99,19 +98,17 @@ const domEvents = (uid) => {
 
     // SHOW FORM TO ADD BOARD
     if (e.target.id.includes('add-board-btn')) {
-      console.warn('CLICKED ADD board BUTTON', e.target.id);
       addPinForm();
     }
 
     // SUBMIT EVENT TO ADD BOARD
     if (e.target.id.includes('submit-board')) {
-      console.warn('CLICKED SUBMIT board BUTTON', e.target.id);
       e.preventDefault();
       const boardObject = {
         first_name: document.querySelector('#board-first-name').value,
         last_name: document.querySelector('#board-last-name').value,
       };
-      createPin(boardObject, uid).then((boardArray) => showBoards(boardArray));
+      createPin(boardObject).then((boardArray) => showBoards(boardArray));
     }
   });
 };
