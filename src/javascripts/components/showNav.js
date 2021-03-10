@@ -15,10 +15,10 @@ const navBar = () => {
       
     <div class="input-group">
       <input type="text" class="form-control w-25 ml-2" aria-label="Text input with dropdown button" placeholder="search">
-      <div class="dropdown show"><a class="btn btn-secondary dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Pins </a>
+      <div class="dropdown show"><a class="btn btn-secondary dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Your Pins </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item btn-light" href="# "id="all-pins">All Pins</a>
-      <a class="dropdown-item btn-light" href="# "id="all-boards">All Boards</a>
+      <a class="dropdown-item btn-light" href="# "id="all-pins">Your Pins</a>
+      <a class="dropdown-item btn-light" href="# "id="all-boards">Your Boards</a>
       </div>
     </div>
 

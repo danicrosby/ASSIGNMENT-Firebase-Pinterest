@@ -1,12 +1,24 @@
-import { deleteBoard } from './boardData';
-import { deletePin, getPins } from './pinData';
+import { deleteBoard, getSingleBoard } from './boardData';
+import { deletePin, getBoardPins } from './pinData';
 
-const deleteBoardPins = (boardId, userId) => new Promise((resolve, reject) => {
-  getPins(boardId).then((pinsArray) => {
-    const deletePins = pinsArray.map((pin) => deletePin(pin.firebaseKey));
-
-    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, userId)));
+// DELETE board AND ALL THEIR pinS
+const deleteBoardPins = (boardId, uid) => new Promise((resolve, reject) => {
+  getBoardPins(boardId).then((boardPinsArray) => {
+    const deletePins = boardPinsArray.map((pin) => deletePin(pin.firebaseKey));
+    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, uid)));
   }).catch((error) => reject(error));
 });
 
-export default deleteBoardPins;
+const boardpinInfo = (boardId) => new Promise((resolve, reject) => {
+  const board = getSingleBoard(boardId);
+  const boardpins = getBoardPins(boardId);
+  Promise.all([board, boardpins]);
+
+  Promise.all([getSingleBoard(boardId), getBoardPins(boardId)])
+    .then(([taco, buritto]) => resolve(
+      { board: taco, pins: buritto }
+    ))
+    .catch((error) => reject(error));
+});
+
+export { deleteBoardPins, boardpinInfo };
