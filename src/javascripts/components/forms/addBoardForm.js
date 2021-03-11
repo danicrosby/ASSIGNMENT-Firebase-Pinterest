@@ -22,11 +22,6 @@ const addBoardForm = () => {
             <input type="url" class="form-control" id="image" required>
           </div>
     
-          <div class="form-group">
-            <label for="description">Board Description</label>
-            <input type="text" class="form-control" id="description" required>
-          </div>
-    
           <button type="submit" id="submit-board" class="btn btn-dark float-right" style="margin-top: 1em;">Create</button>
         </form>
       </div>

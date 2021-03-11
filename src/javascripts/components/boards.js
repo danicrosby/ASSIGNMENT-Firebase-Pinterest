@@ -15,12 +15,12 @@ const showBoards = (array) => {
     <div class="card mr-3 border-white" style="width: 16em; height: 10em; border-radius: 1em;">
     <img class="card-img-top" src=${item.board_image} alt=${item.board_title} style="border-radius: 1em">
     <div class="card-body">
-    <a href="#"><h5 id="board-name-title--${item.firebaseKey}" class="card-title"></h5></a>
-    <div class="card-title" style="font-size: 14px; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</div>
-    <div class="card-title" style="font-size: 14px; margin-top: -10px; margin-left: -1em">${item.board_description}</div>
-    <hr>
-    <button class="btn btn-sm btn-danger card-buttons" data-toggle="modal" data-target="#formModal" id="edit-board-btn--${item.firebaseKey}">Edit Board</button>
-    <button class="btn btn-sm btn-dark card-buttons" id="delete-board--${item.firebaseKey}">Delete Board</button>
+     <div class="container board-card-icons">
+      <button class="btn btn-sm btn-secondary card-buttons" data-toggle="modal" data-target="#formModal" id="edit-board-btn--${item.firebaseKey}"><img src="https://cdn2.iconfinder.com/data/icons/cosmo-multimedia/40/478017-pencil-512.png" style="width: 1em;"></button>
+      <button class="btn btn-sm btn-danger card-buttons" id="delete-board--${item.firebaseKey}">X</button>
+     </div>
+      <a href="#"><h4 id="board-name-title--${item.firebaseKey}" class="card-title"></h4></a>
+      <div class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</div>
     </div>
   </div>`;
   });

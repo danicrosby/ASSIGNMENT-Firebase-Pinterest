@@ -15,7 +15,7 @@ const domBuilder = () => {
     <div class="p-2"><a href=""><img src="https://cdn2.iconfinder.com/data/icons/cosmo-multimedia/40/478017-pencil-512.png" style="width: 1.5em;" id="edit-button"></a></div>
       <div class="mr-auto p-2"><a href=""><img src="https://cdn1.iconfinder.com/data/icons/essentials-pack/96/upload_arrow_send_uploading_interface-512.png" style="width: 1.5em;" id="export-button"></a></div>
       <div class="p-2"><a href=""><img src="https://cdn3.iconfinder.com/data/icons/basic-actions-set/24/39_-_Action_parameters_params_preferences_setting_settings_filter_icon-512.png" style="width: 1.5em;" id="filter-button"></a></div>
-      <div class="p-2"><a href=""><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-512.png" style="width: 1.5em;" id="add-pin-button"></a></div>
+      <div class="p-2"><a href=""><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-512.png" style="width: 1.5em;" id="add-pin-btn"></a></div>
     </div>
   </div>
    
