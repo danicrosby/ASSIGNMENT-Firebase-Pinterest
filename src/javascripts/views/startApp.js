@@ -1,20 +1,26 @@
 // PINS = pins
 // BOARDS = AUTHORS
 
-import { showPins } from '../components/showPins';
+import { emptyPins, showPins } from '../components/pins';
 import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/domBuilder';
-import navBar from '../components/showNav';
+import navBar from '../components/navBar';
 import domEvents from '../events/domEvents';
 import navigationEvents from '../events/navEvents';
 import { getPins } from '../helpers/data/pinData';
 
-const startApp = () => {
+const startApp = (userObject) => {
   domBuilder();
-  domEvents();
+  domEvents(userObject);
   navBar();
-  navigationEvents();
-  getPins().then((pins) => showPins(pins));
+  navigationEvents(userObject);
+  getPins(userObject).then((pinsArray) => {
+    if (pinsArray.length) {
+      showPins(pinsArray);
+    } else {
+      emptyPins();
+    }
+  });
   logoutButton();
 };
 

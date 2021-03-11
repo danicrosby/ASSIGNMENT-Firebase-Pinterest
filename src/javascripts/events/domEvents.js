@@ -1,8 +1,10 @@
-// PINS = pinS //
-// BOARDS = boardS/
+// PINS = BOOKS //
+// BOARDS = AUTHORS/
 import boardInfo from '../components/boardInfo';
-import { showBoards } from '../components/showBoards';
-import { showPins } from '../components/showPins';
+import { showBoards } from '../components/boards';
+import { showPins } from '../components/pins';
+import { createBoard } from '../helpers/data/boardData';
+import addBoardForm from '../components/forms/addBoardForm';
 import addPinForm from '../components/forms/addPinForm';
 import editPinForm from '../components/forms/editPinForm';
 import formModal from '../components/forms/formModal';
@@ -36,17 +38,15 @@ const domEvents = () => {
     if (e.target.id.includes('submit-pin')) {
       e.preventDefault();
       const pinObject = {
-        title: document.querySelector('#title').value,
-        image: document.querySelector('#image').value,
-        price: document.querySelector('#price').value,
-        sale: document.querySelector('#sale').checked,
-        board_id: document.querySelector('#board').value,
+        pin_title: document.querySelector('#title').value,
+        pin_image: document.querySelector('#image').value,
+        pin_description: document.querySelector('#description').value,
       };
 
       createPin(pinObject).then((pinsArray) => showPins(pinsArray));
     }
 
-    // EVENT FOR MODAL TO ADD PIN
+    // EVENT FOR MODAL TO ADD SINGLE PIN
     if (e.target.id.includes('edit-pin-btn')) {
       const firebaseKey = e.target.id.split('--')[1];
       formModal('Update Pin');
@@ -58,11 +58,9 @@ const domEvents = () => {
       const firebaseKey = e.target.id.split('--')[1];
       e.preventDefault();
       const pinObject = {
-        title: document.querySelector('#title').value,
-        image: document.querySelector('#image').value,
-        price: document.querySelector('#price').value,
-        sale: document.querySelector('#sale').checked,
-        board_id: document.querySelector('#board').value,
+        pin_title: document.querySelector('#title').value,
+        pin_image: document.querySelector('#image').value,
+        pin_description: document.querySelector('#description').value,
       };
 
       updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
@@ -70,7 +68,7 @@ const domEvents = () => {
       $('#formModal').modal('toggle');
     }
 
-    // EVENT TO DELETE BOARD & PINS
+    // EVENT TO DELETE BOARD
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Are You Sure?')) {
@@ -79,7 +77,7 @@ const domEvents = () => {
       }
     }
     // EVENT TO DELETE BOARD
-    if (e.target.includes('board-name-title')) {
+    if (e.target.id.includes('board-name-title')) {
       const boardId = e.target.id.split('--')[1];
       boardPinInfo(boardId).then((boardInfoObject) => {
         boardInfo(boardInfoObject.board);
@@ -96,19 +94,20 @@ const domEvents = () => {
       });
     }
 
-    // SHOW FORM TO ADD BOARD
+    // SUBMIT EVENT TO ADD BOARD
     if (e.target.id.includes('add-board-btn')) {
-      addPinForm();
+      addBoardForm();
     }
 
-    // SUBMIT EVENT TO ADD BOARD
+    // SUMBIT FORM FOR ADDING BOARD
     if (e.target.id.includes('submit-board')) {
       e.preventDefault();
       const boardObject = {
-        first_name: document.querySelector('#board-first-name').value,
-        last_name: document.querySelector('#board-last-name').value,
+        board_title: document.querySelector('#title').value,
+        board_image: document.querySelector('#image').value,
+        board_description: document.querySelector('#description').value,
       };
-      createPin(boardObject).then((boardArray) => showBoards(boardArray));
+      createBoard(boardObject).then((boardArray) => showBoards(boardArray));
     }
   });
 };

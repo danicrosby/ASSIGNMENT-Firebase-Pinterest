@@ -1,9 +1,8 @@
 // PINS = pins //
 // BOARDS = Authors//
 
-import { emptyBoards, showBoards } from '../components/showBoards';
-import { emptyPins, showPins } from '../components/showPins';
-// import signOut from '../helpers/signOut';
+import { emptyBoards, showBoards } from '../components/boards';
+import { emptyPins, showPins } from '../components/pins';
 import { getBoards } from '../helpers/data/boardData';
 import { getPins } from '../helpers/data/pinData';
 

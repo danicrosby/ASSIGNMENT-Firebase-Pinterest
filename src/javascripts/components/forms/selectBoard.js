@@ -9,9 +9,9 @@ const selectBoard = (pinObject = {}) => {
   getBoards().then((boardsArray) => {
     boardsArray.forEach((board) => {
       if (board.firebaseKey === pinObject.board_id) {
-        domString += `<option selected value="${board.firebaseKey}">${board.first_name} ${board.last_name}</option>`;
+        domString += `<option selected value="${board.firebaseKey}">${board.board_title}</option>`;
       } else {
-        domString += `<option value="${board.firebaseKey}">${board.first_name} ${board.last_name}</option>`;
+        domString += `<option value="${board.firebaseKey}">${board.board_title}</option>`;
       }
     });
 

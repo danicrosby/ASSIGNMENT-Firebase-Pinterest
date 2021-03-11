@@ -15,8 +15,8 @@ const boardPinInfo = (boardId) => new Promise((resolve, reject) => {
   Promise.all([board, boardpins]);
 
   Promise.all([getSingleBoard(boardId), getBoardPins(boardId)])
-    .then(([taco, buritto]) => resolve(
-      { board: taco, pins: buritto }
+    .then(([obj, obj2]) => resolve(
+      { board: obj, pins: obj2 }
     ))
     .catch((error) => reject(error));
 });
