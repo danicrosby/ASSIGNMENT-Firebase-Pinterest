@@ -40,7 +40,6 @@ const domEvents = () => {
       const pinObject = {
         pin_title: document.querySelector('#title').value,
         pin_image: document.querySelector('#image').value,
-        pin_description: document.querySelector('#description').value,
       };
 
       createPin(pinObject).then((pinsArray) => showPins(pinsArray));
@@ -60,7 +59,6 @@ const domEvents = () => {
       const pinObject = {
         pin_title: document.querySelector('#title').value,
         pin_image: document.querySelector('#image').value,
-        pin_description: document.querySelector('#description').value,
       };
 
       updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
@@ -105,7 +103,6 @@ const domEvents = () => {
       const boardObject = {
         board_title: document.querySelector('#title').value,
         board_image: document.querySelector('#image').value,
-        board_description: document.querySelector('#description').value,
       };
       createBoard(boardObject).then((boardArray) => showBoards(boardArray));
     }
