@@ -1,6 +1,6 @@
 const boardInfo = (boardObject) => {
   document.querySelector('#add-icons').innerHTML += `<h1>
-  ${boardObject.first_name} ${boardObject.last_name}'s Pins</h1>`;
+  ${boardObject.board_title}'s Pins</h1>`;
 };
 
 export default boardInfo;

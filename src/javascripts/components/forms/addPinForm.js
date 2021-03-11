@@ -1,4 +1,4 @@
-import selectBoard from './selectBoards';
+import selectBoard from './selectBoard';
 
 const addPinForm = () => {
   document.querySelector('#overview').innerHTML = '';
@@ -25,7 +25,7 @@ const addPinForm = () => {
 
       <div class="form-group" id="select-board"></div>
       
-      <button type="submit" id="submit-pin" class="btn btn-primary">Submit pin</button>
+      <button type="submit" id="submit-pin" class="btn btn-dark">Submit Pin</button>
     </form>
   </div>
   `;

@@ -1,7 +1,7 @@
 // BOARDS = AUTHORS
 
 const showBoards = (array) => {
-  document.querySelector('#title').innerHTML = `
+  document.querySelector('#header').innerHTML = `
   <div class="container-fluid mt-2 mx-auto mb-2" id="boards-overview">
     <center><h4>Boards</h4></center>
   </div>`;
@@ -13,10 +13,10 @@ const showBoards = (array) => {
   array.forEach((item) => {
     document.querySelector('#overview').innerHTML += `
     <div class="card mr-3 border-white" style="width: 16em; height: 10em; border-radius: 1em;">
-    <img class="card-img-top" src=${item.image} alt=${item.board_name} style="border-radius: 1em">
+    <img class="card-img-top" src=${item.board_image} alt=${item.board_title} style="border-radius: 1em">
     <div class="card-body">
     <a href="#"><h5 id="board-name-title--${item.firebaseKey}" class="card-title"></h5></a>
-    <div class="card-title" style="font-size: 14px; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_name}</div>
+    <div class="card-title" style="font-size: 14px; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</div>
     <div class="card-title" style="font-size: 14px; margin-top: -10px; margin-left: -1em">${item.board_description}</div>
     <hr>
     <button class="btn btn-sm btn-danger card-buttons" data-toggle="modal" data-target="#formModal" id="edit-board-btn--${item.firebaseKey}">Edit Board</button>
