@@ -3,10 +3,11 @@ const domBuilder = () => {
     <div id="navigation"></div>
     <div id="main-container"></div>
     <div id="title"></div>
-    <div id="add-button"></div>
+    <center><div id="add-button"></div></center>
     <div id="add-icons"></div>
     <div id="overview"></div>
-    <div id="form-container"></div>`;
+    <center><div id="form-container"></div></center>
+    <div id="modal-container"></div>`;
 
   document.querySelector('#add-icons').innerHTML = `
  

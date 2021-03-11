@@ -9,12 +9,12 @@ import domEvents from '../events/domEvents';
 import navigationEvents from '../events/navEvents';
 import { getPins } from '../helpers/data/pinData';
 
-const startApp = () => {
+const startApp = (userObject) => {
   domBuilder();
-  domEvents();
+  domEvents(userObject.uid);
   navBar();
-  navigationEvents();
-  getPins().then((pins) => showPins(pins));
+  navigationEvents(userObject.uid);
+  getPins(userObject.uid).then((pins) => showPins(pins));
   logoutButton();
 };
 
