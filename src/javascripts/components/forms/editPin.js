@@ -6,7 +6,7 @@ const editPinForm = (pinObject) => {
 
       <div class="form-group">
         <label for="title">Pin Title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="pinTitle" placeholder="Enter pin Title" value="${pinObject.pin_title}" required>
+        <input type="text" class="form-control" id="title" aria-describedby="pinTitle" placeholder="Enter Pin Title" value="${pinObject.pin_title}" required>
       </div>
 
       <div class="form-group">
@@ -15,7 +15,7 @@ const editPinForm = (pinObject) => {
       </div>
 
       <div class="form-group" id="select-board"></div>
-      <button type="submit" id="update-pin--${pinObject.firebaseKey}" class="btn btn-success">Update Pin</button>
+      <button type="submit" id="update-pin--${pinObject.firebaseKey}" class="btn btn-dark float-right">Update Pin</button>
       
     </form>`;
 

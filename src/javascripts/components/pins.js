@@ -2,11 +2,11 @@
 
 const showPins = (array) => {
   document.querySelector('#header').innerHTML = `
-    <div class="container-fluid mt-2 mx-auto mb-2" id="boards-overview">
+    <div class="container-fluid mt-2 mx-auto mb-2" id="pins-overview">
       <center><h3>Pins</h3></center>
     </div>`;
 
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-light btn-lg mb-4" style="font-size: 2.3em; height: 2em; width: 2em; border-radius: 50%; border: 1px solid whitesmoke" id="add-pin-btn">+</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
   document.querySelector('#overview').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 
