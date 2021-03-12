@@ -1,4 +1,3 @@
-import 'firebase/auth';
 import { getBoards } from '../../helpers/data/boardData';
 
 const selectBoard = (pinObject = {}) => {

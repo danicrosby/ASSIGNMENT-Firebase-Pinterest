@@ -35,7 +35,7 @@ const createPin = (pinObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-// GET SINGLE BOOK
+// GET SINGLE PIN
 const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/pins/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
