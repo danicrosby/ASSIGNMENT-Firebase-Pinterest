@@ -81,16 +81,8 @@ const domEvents = () => {
     if (e.target.id.includes('board-name-title')) {
       const boardId = e.target.id.split('--')[1];
       boardPinInfo(boardId).then((boardInfoObject) => {
+        showPins(boardInfoObject.pins);
         boardInfo(boardInfoObject.board);
-        showPins(boardInfoObject.pins);
-      });
-    }
-
-    if (e.target.id.includes('board-name-title')) {
-      const boardId = e.target.id.split('--')[1];
-      boardPinInfo(boardId).then((boardInfoObject) => {
-        showPins(boardInfoObject.pins);
-        boardInfo(boardInfoObject.pins);
       });
     }
 
