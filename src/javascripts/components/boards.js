@@ -18,7 +18,7 @@ const showBoards = (array) => {
       <div class="container board-card-icons">
         <button class="btn btn-sm btn-danger card-buttons" id="delete-board--${item.firebaseKey}">X</button>
       </div>
-        <a href="#"><h4 id="board-title--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
+      <a href="#"><h4 id="view-boards--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
       </div>
     </div>`;
   });
@@ -30,4 +30,3 @@ const emptyBoards = () => {
 
 export { showBoards, emptyBoards };
 // EDIT BUTTON
-// <button class="btn btn-sm btn-secondary card-buttons" data-toggle="modal" data-target="#formModal" id="edit-board-btn--${item.firebaseKey}"><img src="https://cdn2.iconfinder.com/data/icons/cosmo-multimedia/40/478017-pencil-512.png" style="width: 1em;"></button>

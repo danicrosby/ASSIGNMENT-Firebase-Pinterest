@@ -5,11 +5,11 @@ import { showBoards } from '../components/boards';
 import { showPins } from '../components/pins';
 import formModal from '../components/forms/formModal';
 import addBoardForm from '../components/forms/addBoard';
-import { boardPinsInfo } from '../helpers/data/boardPinData';
-import { createBoard, deleteBoard } from '../helpers/data/boardData';
+import { createBoard, deleteBoard, getSingleBoard } from '../helpers/data/boardData';
 import addPinForm from '../components/forms/addPin';
 import {
   createPin,
+  getPins,
   deletePin,
   getSinglePin,
   updatePin
@@ -20,16 +20,6 @@ import editPinForm from '../components/forms/editPin';
 
 const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
-    // CLICK BOARD TITLE TO SEE PINS
-    if (e.target.id.includes('board-title')) {
-      console.warn('line 84 running');
-      const boardId = e.target.id.split('--')[1];
-      boardPinsInfo(boardId).then((boardPinsObject) => {
-        showPins(boardPinsObject.pins);
-        boardInfo(boardPinsObject.board);
-      });
-    }
-
     // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
@@ -87,12 +77,10 @@ const domEvents = () => {
       }
     }
 
-    if (e.target.id.includes('board-title')) {
-      const boardId = e.target.id.split('--')[1];
-      boardPinsInfo(boardId).then((boardInfoObj) => {
-        showPins(boardInfoObj.pins);
-        boardInfo(boardInfoObj.boardTitle);
-      });
+    if (e.target.id.includes('view-boards')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      getPins(firebaseKey).then((pins) => showPins(pins));
+      getSingleBoard(firebaseKey).then((board) => boardInfo(board));
     }
 
     // EVENT TO SHOW FORM TO ADD BOARD
