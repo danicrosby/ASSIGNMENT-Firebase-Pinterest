@@ -12,13 +12,13 @@ const showBoards = (array) => {
 
   array.forEach((item) => {
     document.querySelector('#overview').innerHTML += `
-      <div class="card mr-3 border-white" style="width: 16em; height: 10em; border-radius: 1em;">
+      <div class="card mr-3 border-white" style="width: 16em; height: 10em; border-radius: 1em;" id="board-card-click">
       <img class="card-img-top" src=${item.board_image} alt=${item.board_title} style="border-radius: 1em">
       <div class="card-body">
       <div class="container board-card-icons">
         <button class="btn btn-sm btn-danger card-buttons" id="delete-board--${item.firebaseKey}">X</button>
       </div>
-        <a href="#"><h4 id="board-title-btn--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
+        <a href="#"><h4 id="board-title--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
       </div>
     </div>`;
   });

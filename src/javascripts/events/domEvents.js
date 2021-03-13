@@ -3,26 +3,33 @@
 import boardInfo from '../components/boardInfo';
 import { showBoards } from '../components/boards';
 import { showPins } from '../components/pins';
-import addBoardForm from '../components/forms/addBoard';
-import addPinForm from '../components/forms/addPin';
-// import editBoardForm from '../components/forms/editBoard';
-import editPinForm from '../components/forms/editPin';
 import formModal from '../components/forms/formModal';
-import { boardPinInfo } from '../helpers/data/boardPinData';
-import {
-  createBoard, deleteBoard,
-} from '../helpers/data/boardData';
+import addBoardForm from '../components/forms/addBoard';
+import { boardPinsInfo } from '../helpers/data/boardPinData';
+import { createBoard, deleteBoard } from '../helpers/data/boardData';
+import addPinForm from '../components/forms/addPin';
 import {
   createPin,
   deletePin,
   getSinglePin,
   updatePin
 } from '../helpers/data/pinData';
+import editPinForm from '../components/forms/editPin';
 
 // CLICK EVENTS
 
 const domEvents = () => {
   document.querySelector('body').addEventListener('click', (e) => {
+    // CLICK BOARD TITLE TO SEE PINS
+    if (e.target.id.includes('board-title')) {
+      console.warn('line 84 running');
+      const boardId = e.target.id.split('--')[1];
+      boardPinsInfo(boardId).then((boardPinsObject) => {
+        showPins(boardPinsObject.pins);
+        boardInfo(boardPinsObject.board);
+      });
+    }
+
     // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
@@ -80,12 +87,11 @@ const domEvents = () => {
       }
     }
 
-    // CLICK BOARD TITLE TO SEE PINS
-    if (e.target.id.includes('board-title-btn')) {
+    if (e.target.id.includes('board-title')) {
       const boardId = e.target.id.split('--')[1];
-      boardPinInfo(boardId).then((boardInfoObject) => {
-        showPins(boardInfoObject.pins);
-        boardInfo(boardInfoObject.board);
+      boardPinsInfo(boardId).then((boardInfoObj) => {
+        showPins(boardInfoObj.pins);
+        boardInfo(boardInfoObj.boardTitle);
       });
     }
 
