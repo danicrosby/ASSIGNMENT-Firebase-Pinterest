@@ -18,7 +18,7 @@ const showBoards = (array) => {
       <div class="container board-card-icons">
         <button class="btn btn-sm btn-danger card-buttons" id="delete-board--${item.firebaseKey}">X</button>
       </div>
-      <a href="#"><h4 id="view-boards--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
+      <a href="#"><h4 id="board-name-title--${item.firebaseKey}" class="card-title" style="font-size: 1em; font-weight: bold; margin-top: -10px; margin-left: -1em">${item.board_title}</h4></a>
       </div>
     </div>`;
   });

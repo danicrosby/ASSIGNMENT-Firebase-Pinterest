@@ -17,8 +17,8 @@ const getBoards = () => new Promise((resolve, reject) => {
 });
 
 // GET SINGLE BOARD
-const getSingleBoard = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/boards/${firebaseKey}.json`)
+const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/boards/${boardId}.json`)
     .then(() => getBoards().then((boardsArray) => resolve(boardsArray)))
     .catch((error) => reject(error));
 });

@@ -77,10 +77,11 @@ const domEvents = () => {
       }
     }
 
-    if (e.target.id.includes('view-boards')) {
-      const firebaseKey = e.target.id.split('--')[1];
-      getPins(firebaseKey).then((pins) => showPins(pins));
-      getSingleBoard(firebaseKey).then((board) => boardInfo(board));
+    if (e.target.id.includes('board-name-title')) {
+      const boardId = e.target.id.split('--')[1];
+      console.warn(boardId);
+      // getPins(firebaseKey).then((pins) => showPins(pins));
+      // getSingleBoard(firebaseKey).then((board) => boardInfo(board));
     }
 
     // EVENT TO SHOW FORM TO ADD BOARD
