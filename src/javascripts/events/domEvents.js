@@ -24,7 +24,7 @@ const domEvents = () => {
     // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
-      if (window.confirm('delete pin request line 24')) {
+      if (window.confirm('Are you sure you want to delete this pin?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
       }
@@ -72,7 +72,7 @@ const domEvents = () => {
     // EVENT TO DELETE BOARD
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
-      if (window.confirm('delete board request line 72')) {
+      if (window.confirm('Are you sure you want to delete this board?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
       }

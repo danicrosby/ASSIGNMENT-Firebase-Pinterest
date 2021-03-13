@@ -8,8 +8,7 @@ const home = () => {
     <div id="login-form-container" style="margin-left: 2em"></div>
   </nav>
 
-  <div class="container-fluid mt-2 mx-auto mb-2" id="collection">
-    <center><h1>Pinterest</h1></center>
+  <center><h1>Pinterest</h1></center>
   </div>`;
 };
 
