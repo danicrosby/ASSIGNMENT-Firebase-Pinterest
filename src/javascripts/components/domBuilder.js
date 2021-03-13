@@ -2,7 +2,7 @@ const domBuilder = () => {
   document.querySelector('#app').innerHTML = `
     <div id="navigation"></div>
     <div id="main-container"></div>
-    <div id="header"></div>
+    <center><div id="header"></div></center>
     <center><div id="add-button"></div></center>
 
     <div id="add-icons">
