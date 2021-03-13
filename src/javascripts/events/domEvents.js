@@ -5,11 +5,13 @@ import { showBoards } from '../components/boards';
 import { showPins } from '../components/pins';
 import addBoardForm from '../components/forms/addBoard';
 import addPinForm from '../components/forms/addPin';
-import editBoardForm from '../components/forms/editBoard';
+// import editBoardForm from '../components/forms/editBoard';
 import editPinForm from '../components/forms/editPin';
 import formModal from '../components/forms/formModal';
 import { boardPinInfo } from '../helpers/data/boardPinData';
-import { createBoard, getSingleBoard, deleteBoard } from '../helpers/data/boardData';
+import {
+  createBoard, deleteBoard,
+} from '../helpers/data/boardData';
 import {
   createPin,
   deletePin,
@@ -61,7 +63,7 @@ const domEvents = () => {
       const pinObject = {
         pin_title: document.querySelector('#title').value,
         pin_image: document.querySelector('#image').value,
-        board_id: document.querySelector('#board').value,
+        board_id: document.querySelector('#select-board').value,
       };
 
       updatePin(firebaseKey, pinObject).then((pinsArray) => showPins(pinsArray));
@@ -78,7 +80,8 @@ const domEvents = () => {
       }
     }
 
-    if (e.target.id.includes('board-name-title')) {
+    // CLICK BOARD TITLE TO SEE PINS
+    if (e.target.id.includes('board-title-btn')) {
       const boardId = e.target.id.split('--')[1];
       boardPinInfo(boardId).then((boardInfoObject) => {
         showPins(boardInfoObject.pins);
@@ -102,27 +105,26 @@ const domEvents = () => {
     }
 
     // EVENT FOR MODAL BOARD
-    if (e.target.id.includes('edit-board-btn')) {
-      console.warn('modal running');
-      const firebaseKey = e.target.id.split('--')[1];
-      formModal('Update Board');
-      getSingleBoard(firebaseKey).then((boardObject) => editBoardForm(boardObject));
-    }
+    // if (e.target.id.includes('edit-board-btn')) {
+    //   console.warn('modal running');
+    //   const firebaseKey = e.target.id.split('--')[1];
+    //   formModal('Update Board');
+    //   getSingleBoard(firebaseKey).then((boardObject) => editBoardForm(boardObject));
+    // }
 
     // EVENT TO EDIT BOARD
-    if (e.target.id.includes('update-board')) {
-      console.warn('update running');
-      const firebaseKey = e.target.id.split('--')[1];
-      e.preventDefault();
-      const boardObject = {
-        board_title: document.querySelector('#title').value,
-        board_image: document.querySelector('#image').value,
-      };
+    // if (e.target.id.includes('update-board')) {
+    //   const firebaseKey = e.target.id.split('--')[1];
+    //   e.preventDefault();
+    //   const boardObject = {
+    //     board_title: document.querySelector('#title').value,
+    //     board_image: document.querySelector('#image').value,
+    //   };
 
-      updatePin(firebaseKey, boardObject).then((pinsArray) => showPins(pinsArray));
+    //   updateBoard(firebaseKey, boardObject).then((boardsArray) => showBoards(boardsArray));
 
-      $('#formModal').modal('toggle');
-    }
+    //   $('#formModal').modal('toggle');
+    // }
   });
 };
 
