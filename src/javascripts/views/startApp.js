@@ -13,8 +13,8 @@ const startApp = (userObject) => {
   domBuilder();
   domEvents(userObject);
   navBar();
-  navigationEvents(userObject);
-  getPins(userObject).then((pinsArray) => {
+  navigationEvents(userObject.uid);
+  getPins(userObject.uid).then((pinsArray) => {
     if (pinsArray.length) {
       showPins(pinsArray);
     } else {

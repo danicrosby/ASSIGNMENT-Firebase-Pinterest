@@ -1,11 +1,13 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
 // GET BOARDS
-const getBoards = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/boards.json`)
+const getBoards = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         const boardArray = Object.values(response.data);
@@ -24,20 +26,20 @@ const getSingleBoard = (boardId) => new Promise((resolve, reject) => {
 });
 
 // DELETE BOARD
-const deleteBoard = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteBoard = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/boards/${firebaseKey}.json`)
-    .then(() => getBoards().then((boardsArray) => resolve(boardsArray)))
+    .then(() => getBoards(uid).then((boardsArray) => resolve(boardsArray)))
     .catch((error) => reject(error));
 });
 
 // CREATE BOARD
-const createBoard = (boardObject) => new Promise((resolve, reject) => {
+const createBoard = (boardObject, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/boards.json`, boardObject)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/boards/${response.data.name}.json`, body)
         .then(() => {
-          getBoards().then((boardsArray) => resolve(boardsArray));
+          getBoards(uid).then((boardsArray) => resolve(boardsArray));
         });
     }).catch((error) => reject(error));
 });
@@ -45,7 +47,7 @@ const createBoard = (boardObject) => new Promise((resolve, reject) => {
 // UPDATE BOARDS
 const updateBoard = (firebaseKey, boardsObject) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/boards/${firebaseKey}.json`, boardsObject)
-    .then(() => getBoards()).then((boardsArray) => resolve(boardsArray))
+    .then(() => getBoards(firebase.auth().currentUser.uid)).then((booksArray) => resolve(booksArray))
     .catch((error) => reject(error));
 });
 

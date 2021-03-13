@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
@@ -5,8 +6,8 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 // GET PINS
-const getPins = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/pins.json`)
+const getPins = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/pins.jsonjson?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -17,20 +18,20 @@ const getPins = () => new Promise((resolve, reject) => {
 });
 
 // DELETE PIN
-const deletePin = (firebaseKey) => new Promise((resolve, reject) => {
+const deletePin = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/pins/${firebaseKey}.json`)
-    .then(() => getPins().then((pinsArray) => resolve(pinsArray)))
+    .then(() => getPins(uid).then((pinsArray) => resolve(pinsArray)))
     .catch((error) => reject(error));
 });
 
 // CREATE PIN
-const createPin = (pinObject) => new Promise((resolve, reject) => {
+const createPin = (pinObject, uid) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/pins.json`, pinObject)
     .then((response) => {
       const body = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/pins/${response.data.name}.json`, body)
         .then(() => {
-          getPins().then((pinsArray) => resolve(pinsArray));
+          getPins(uid).then((pinsArray) => resolve(pinsArray));
         });
     }).catch((error) => reject(error));
 });
@@ -45,7 +46,7 @@ const getSinglePin = (firebaseKey) => new Promise((resolve, reject) => {
 // UPDATE PIN
 const updatePin = (firebaseKey, pinObject) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/pins/${firebaseKey}.json`, pinObject)
-    .then(() => getPins()).then((pinsArray) => resolve(pinsArray))
+    .then(() => getPins(firebase.auth().currentUser.uid)).then((booksArray) => resolve(booksArray))
     .catch((error) => reject(error));
 });
 

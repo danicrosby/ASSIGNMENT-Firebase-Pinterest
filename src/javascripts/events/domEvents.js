@@ -17,14 +17,14 @@ import editPinForm from '../components/forms/editPin';
 
 // CLICK EVENTS
 
-const domEvents = () => {
+const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
     // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Are you sure you want to delete this pin?')) {
         const firebaseKey = e.target.id.split('--')[1];
-        deletePin(firebaseKey).then((pinsArray) => showPins(pinsArray));
+        deletePin(firebaseKey.uid).then((pinsArray) => showPins(pinsArray));
       }
     }
 
@@ -40,6 +40,7 @@ const domEvents = () => {
         pin_title: document.querySelector('#title').value,
         pin_image: document.querySelector('#image').value,
         board_id: document.querySelector('#board').value,
+        uid
       };
 
       createPin(pinObject).then((pinsArray) => showPins(pinsArray));
@@ -71,8 +72,8 @@ const domEvents = () => {
     if (e.target.id.includes('delete-board')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Are you sure you want to delete this board?')) {
-        const firebaseKey = e.target.id.split('--')[1];
-        deleteBoard(firebaseKey).then((boardsArray) => showBoards(boardsArray));
+        const boardId = e.target.id.split('--')[1];
+        deleteBoard(boardId, uid).then((boardsArray) => showBoards(boardsArray));
       }
     }
 
@@ -95,6 +96,7 @@ const domEvents = () => {
       const boardObject = {
         board_title: document.querySelector('#title').value,
         board_image: document.querySelector('#image').value,
+        uid
       };
       createBoard(boardObject).then((boardArray) => showBoards(boardArray));
     }

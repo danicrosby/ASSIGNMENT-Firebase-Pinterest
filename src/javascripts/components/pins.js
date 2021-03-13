@@ -6,7 +6,7 @@ const showPins = (array) => {
       <center><h3>Pins</h3></center>
     </div>`;
 
-  document.querySelector('#add-icons').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
   document.querySelector('#overview').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 
@@ -19,17 +19,16 @@ const showPins = (array) => {
           <button class="btn btn-sm btn-danger card-buttons" id="delete-pin--${item.firebaseKey}">X</button>
         </div>
         <div class="card-body">
-            <div class="card-title" style="font-size: 14px; margin-top: -10px; margin-left: -1em">${item.pin_title}</div>
-          </div>
+          <div class="card-title" style="font-size: 14px; margin-top: -10px; margin-left: -1em">${item.pin_title}</div>
         </div>
       </div>`;
   });
 };
 
 const emptyPins = () => {
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-success btn-lg mb-4" id="add-pin-btn">Add A Pin</button>';
+  document.querySelector('#add-button').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
   document.querySelector('#form-container').innerHTML = '';
-  document.querySelector('#overview').innerHTML = '<h1 class="text-white">No Items</h1>';
+  document.querySelector('#header').innerHTML = '<center><h1>No Items</h1></center>';
 };
 
 export { showPins, emptyPins };

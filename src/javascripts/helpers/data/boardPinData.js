@@ -2,11 +2,11 @@ import { deleteBoard, getSingleBoard } from './boardData';
 import { deletePin, getBoardPins } from './pinData';
 
 // DELETE BOARD & IT'S PINS
-const deleteBoardPins = (boardId, userId) => new Promise((resolve, reject) => {
+const deleteBoardPins = (boardId, uid) => new Promise((resolve, reject) => {
   getBoardPins(boardId).then((pinsArray) => {
     const deletePins = pinsArray.map((pin) => deletePin(pin.firebaseKey));
 
-    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, userId)));
+    Promise.all(deletePins).then(() => resolve(deleteBoard(boardId, uid)));
   }).catch((error) => reject(error));
 });
 
