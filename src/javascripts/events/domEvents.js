@@ -1,15 +1,14 @@
 // PINS = BOOKS //
 // BOARDS = boardS/
-import boardInfo from '../components/boardInfo';
 import { showBoards } from '../components/boards';
 import { showPins } from '../components/pins';
 import formModal from '../components/forms/formModal';
 import addBoardForm from '../components/forms/addBoard';
-import { createBoard, deleteBoard, getSingleBoard } from '../helpers/data/boardData';
+import { boardPinInfo } from '../helpers/data/boardPinData';
+import { createBoard, deleteBoard } from '../helpers/data/boardData';
 import addPinForm from '../components/forms/addPin';
 import {
   createPin,
-  getPins,
   deletePin,
   getSinglePin,
   updatePin
@@ -79,9 +78,10 @@ const domEvents = () => {
 
     if (e.target.id.includes('board-name-title')) {
       const boardId = e.target.id.split('--')[1];
-      console.warn(boardId);
-      // getPins(firebaseKey).then((pins) => showPins(pins));
-      // getSingleBoard(firebaseKey).then((board) => boardInfo(board));
+      boardPinInfo(boardId).then((boardInfoObject) => {
+        showPins(boardInfoObject.books);
+        boardInfoObject(boardInfoObject.board);
+      });
     }
 
     // EVENT TO SHOW FORM TO ADD BOARD
@@ -98,28 +98,6 @@ const domEvents = () => {
       };
       createBoard(boardObject).then((boardArray) => showBoards(boardArray));
     }
-
-    // EVENT FOR MODAL BOARD
-    // if (e.target.id.includes('edit-board-btn')) {
-    //   console.warn('modal running');
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   formModal('Update Board');
-    //   getSingleBoard(firebaseKey).then((boardObject) => editBoardForm(boardObject));
-    // }
-
-    // EVENT TO EDIT BOARD
-    // if (e.target.id.includes('update-board')) {
-    //   const firebaseKey = e.target.id.split('--')[1];
-    //   e.preventDefault();
-    //   const boardObject = {
-    //     board_title: document.querySelector('#title').value,
-    //     board_image: document.querySelector('#image').value,
-    //   };
-
-    //   updateBoard(firebaseKey, boardObject).then((boardsArray) => showBoards(boardsArray));
-
-    //   $('#formModal').modal('toggle');
-    // }
   });
 };
 

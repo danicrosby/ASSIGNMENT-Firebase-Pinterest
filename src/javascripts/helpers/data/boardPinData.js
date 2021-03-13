@@ -1,14 +1,6 @@
 import { deleteBoard, getSingleBoard } from './boardData';
 import { deletePin, getBoardPins } from './pinData';
 
-const boardPinsInfo = (boardId) => new Promise((resolve, reject) => {
-  const board = getSingleBoard(boardId);
-  const boardPins = getBoardPins(boardId);
-  Promise.all([board, boardPins])
-    .then(([boardResponse, boardPinsResponse]) => resolve({ board: boardResponse, pins: boardPinsResponse }))
-    .catch((error) => reject(error));
-});
-
 // DELETE BOARD & IT'S PINS
 const deleteBoardPins = (boardId, userId) => new Promise((resolve, reject) => {
   getBoardPins(boardId).then((pinsArray) => {
@@ -18,4 +10,14 @@ const deleteBoardPins = (boardId, userId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export { deleteBoardPins, boardPinsInfo };
+const boardPinInfo = (boardId) => new Promise((resolve, reject) => {
+  const board = getSingleBoard(boardId);
+  const boardPins = getBoardPins(boardId);
+  console.warn(board, boardPins);
+
+  Promise.all([board, boardPins])
+    .then(([boardResponse, boardPinsResponse]) => resolve({ board: boardResponse, pins: boardPinsResponse }))
+    .catch((error) => reject(error));
+});
+
+export { deleteBoardPins, boardPinInfo };

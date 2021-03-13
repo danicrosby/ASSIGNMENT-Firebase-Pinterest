@@ -6,7 +6,7 @@ const showPins = (array) => {
       <center><h3>Pins</h3></center>
     </div>`;
 
-  document.querySelector('#add-button').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
+  document.querySelector('#add-icons').innerHTML = '<button class="btn btn-light btn-lg m-2" style="font-size: 2em; width: 2em; height: 2em; border-radius: 50%" id="add-pin-btn">+</button>';
   document.querySelector('#overview').innerHTML = '';
   document.querySelector('#form-container').innerHTML = '';
 
