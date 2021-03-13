@@ -11,12 +11,11 @@ const deleteBoardPins = (boardId) => new Promise((resolve, reject) => {
 
 const boardPinInfo = (boardId) => new Promise((resolve, reject) => {
   const board = getSingleBoard(boardId);
-  const boardpins = getBoardPins(boardId);
-  Promise.all([board, boardpins]);
+  const boardPins = getBoardPins(boardId);
 
-  Promise.all([getSingleBoard(boardId), getBoardPins(boardId)])
-    .then(([obj, obj2]) => resolve(
-      { board: obj, pins: obj2 }
+  Promise.all([board, boardPins])
+    .then((boardResponse, boardPinsResponse) => resolve(
+      { board: boardResponse, pins: boardPinsResponse }
     ))
     .catch((error) => reject(error));
 });
