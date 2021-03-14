@@ -1,4 +1,4 @@
-import domBuilder from '../components/domBuilder';
+import domBuilder from './domBuilder';
 
 const home = () => {
   domBuilder();
