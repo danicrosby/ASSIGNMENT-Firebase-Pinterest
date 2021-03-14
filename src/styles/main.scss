@@ -1,82 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
-body {
-  background-color: white;
-}
-
-#login-form-container {
-  display: flex;
-  justify-content: flex-end;
-  height: 2em;
-}
-
-#google-auth {
-  margin-right: 1em;
-}
-
-.nav-item {
-  margin-left: 1.8em;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  // border: 1px solid green;
-}
-
-#overview {
-  display: flex;
+#store {
+  display: flex; 
   justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-left: 2em;
-}
-
-hr {
-  margin-top: -5px;
-  margin-bottom: 1em;
-  margin-left: -1em;
-}
-.card-buttons {
-  font-size: 10px;
-  margin-left: -1em;
-  margin-right: 10px;
-}
-
-#follow-count {
-  margin-top: -.5em;
-  font-size: 14px;
-}
-
-#create-board-card {
-  border-radius: 2em;
-  width: 40em;
-  height: 29
-}
-
-#add-button {
-  margin-left: 2em;
-}
-.form-control {
-  border-radius: 10px;
-}
-
-.pin-card-icons {
-  margin-top: -2em;
-  margin-left: 1em;
-  margin-bottom: .5em
-}
-
-.board-card-icons {
-  margin-top: -3.5em;
-  margin-bottom: 2em
-}
-
-a {
-  color: black;
-}
-
-a:hover {
-  text-decoration: none;
-  color: black;
+  flex-flow: row-wrap;
 }
