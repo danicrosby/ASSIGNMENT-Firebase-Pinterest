@@ -4,13 +4,13 @@ import signOut from '../helpers/auth/signOut';
 import getPins from '../helpers/data/pinData';
 import getBoards from '../helpers/data/boardData';
 
-const navEvents = () => {
+const navEvents = (uid) => {
   // LOGOUT BUTTON
   document.querySelector('#logout-button').addEventListener('click', signOut);
 
   // GET ALL PINS
-  document.querySelector('#all-books').addEventListener('click', () => {
-    getPins().then((pinsArray) => {
+  document.querySelector('#all-pins').addEventListener('click', () => {
+    getPins(uid).then((pinsArray) => {
       if (pinsArray.length) {
         showPins(pinsArray);
       } else {
@@ -20,8 +20,8 @@ const navEvents = () => {
   });
 
   // GET BOARDS
-  document.querySelector('#authors').addEventListener('click', () => {
-    getBoards().then((boardArray) => {
+  document.querySelector('#boards').addEventListener('click', () => {
+    getBoards(uid).then((boardArray) => {
       if (boardArray.length) {
         showBoards(boardArray);
       } else {
