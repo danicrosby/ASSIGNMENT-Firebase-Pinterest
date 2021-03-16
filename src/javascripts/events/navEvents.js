@@ -1,8 +1,8 @@
 import { showPins, emptyPins } from '../components/pins';
 import { showBoards, emptyBoards } from '../components/boards';
 import signOut from '../helpers/auth/signOut';
-import getPins from '../helpers/data/pinData';
-import getBoards from '../helpers/data/boardData';
+import { getPins } from '../helpers/data/pinData';
+import { getBoards } from '../helpers/data/boardData';
 
 const navEvents = (uid) => {
   // LOGOUT BUTTON

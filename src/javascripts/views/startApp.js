@@ -4,7 +4,7 @@ import domBuilder from './domBuilder';
 import navBar from '../components/navBar';
 import domEvents from '../events/domEvents';
 import navEvents from '../events/navEvents';
-import getBoards from '../helpers/data/boardData';
+import { getBoards } from '../helpers/data/boardData';
 
 const startApp = (userObject) => {
   domBuilder();

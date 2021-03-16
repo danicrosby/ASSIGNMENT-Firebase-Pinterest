@@ -1,14 +1,17 @@
 /* eslint-disable no-alert */
 import addPinForm from '../components/forms/addPinForm';
 import { showPins } from '../components/pins';
-import { createPin } from '../helpers/data/pinData';
+import addBoardForm from '../components/forms/addBoardForm';
+import { deleteBoard } from '../helpers/data/boardData';
+import { createPin, deletePin } from '../helpers/data/pinData';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
   // DELETE PIN
     if (e.target.id.includes('delete-pin')) {
-      if (window.confirm('Are you sure you want to delete this pin?')) {
-        console.warn('CLICKED DELETE PIN BUTTON', e.target.id);
+      if (window.confirm('Are you surer you want to delete this pin?')) {
+        const firebaseKey = e.target.id.split('--')[1];
+        deletePin(firebaseKey, uid).then((pinsArray) => showPins(pinsArray));
       }
     }
 
@@ -21,17 +24,16 @@ const domEvents = (uid) => {
     if (e.target.id.includes('submit-pin')) {
       e.preventDefault();
       const pinObject = {
-        title: document.querySelector('#title').value,
-        image: document.querySelector('#image').value,
-        description: document.querySelector('#description').value,
-        board_id: document.querySelector('#board').value,
+        pin_title: document.querySelector('#title').value,
+        pin_image: document.querySelector('#image').value,
+        board_id: document.querySelector('#select-board').value,
         uid
       };
 
       createPin(pinObject).then((pinsArray) => showPins(pinsArray));
     }
 
-    // SHOW MODAL FOR ADD PIN
+    // EDIT PIN FORM
     if (e.target.id.includes('edit-pin-btn')) {
       console.warn('CLICKED SUBMIT PIN', e.target.id);
     }
@@ -43,20 +45,27 @@ const domEvents = (uid) => {
 
     // DELETE BOARD
     if (e.target.id.includes('delete-board')) {
-      if (window.confirm('Are you sure you want to delete this board?')) {
-        console.warn('CLICKED DELETE BOARD BUTTON', e.target.id);
+      if (window.confirm('Are you surer you want to delete this pin?')) {
+        const firebaseKey = e.target.id.split('--')[1];
+        deleteBoard(firebaseKey, uid).then((boardsArray) => showPins(boardsArray));
       }
     }
 
     // SHOW ADD BOARD FORM
-    if (e.target.id.includes('add-pin-btn')) {
-      console.warn('CLICKED ADD BOARD BUTTON', e.target.id);
-    // addBoardForm();
+    if (e.target.id.includes('add-board-btn')) {
+      addBoardForm();
     }
 
     // SUBMIT BOARD FORM
     if (e.target.id.includes('submit-board')) {
-      console.warn('CLICKED SUBMIT BOARD', e.target.id);
+      e.preventDefault();
+      const pinObject = {
+        board_title: document.querySelector('#title').value,
+        board_image: document.querySelector('#image').value,
+        uid
+      };
+
+      createPin(pinObject).then((pinsArray) => showPins(pinsArray));
     }
 
     // SHOW MODAL FOR ADD BOARD
