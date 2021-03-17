@@ -37,7 +37,7 @@ const domEvents = (uid) => {
       createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
-    // EDIT PIN FORM
+    // EDIT PIN FORM // this is a comment so i can push
     if (e.target.id.includes('edit-pin-btn')) {
       console.warn('CLICKED SUBMIT PIN', e.target.id);
     }
