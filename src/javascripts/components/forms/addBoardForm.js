@@ -1,12 +1,11 @@
-import selectBoard from './selectBoard';
-
 const addBoardForm = () => {
   document.querySelector('#store').innerHTML = '';
   document.querySelector('#add-button').innerHTML = '';
+
   document.querySelector('#form-container').innerHTML = `
     <form id="submit-board-form" class="mb-4">
       <div class="form-group">
-        <label for="title">board Name</label>
+        <label for="title">Board Name</label>
         <input type="text" class="form-control" id="title" aria-describedby="bookTitle" placeholder="Enter Board Name" required>
       </div>
       <div class="form-group">
@@ -16,8 +15,6 @@ const addBoardForm = () => {
       </div>
       <button type="submit" id="submit-board" class="btn btn-primary">Submit Board</button>
     </form>`;
-
-  selectBoard();
 };
 
 export default addBoardForm;

@@ -12,7 +12,7 @@ const startApp = (userObject) => {
   navBar();
   logoutButton();
   navEvents(userObject.uid);
-  getBoards().then((boards) => showBoards(boards));
+  getBoards(userObject.uid).then((boards) => showBoards(boards));
 };
 
 export default startApp;
