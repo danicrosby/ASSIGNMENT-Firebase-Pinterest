@@ -1,6 +1,6 @@
 import selectBoard from './selectBoard';
 
-const editPinForm = (pinObject) => {
+const editPinForm = (pinObject, uid) => {
   document.querySelector('#modal-body').innerHTML = `
     <form id="edit-pin-form" class="mb-4">
       <div class="form-group">
@@ -20,7 +20,7 @@ const editPinForm = (pinObject) => {
       <button type="submit" id="update-pin--${pinObject.firebaseKey}" class="btn btn-success">Update pin</button>
     </form>`;
 
-  selectBoard(pinObject);
+  selectBoard(pinObject, uid);
 };
 
 export default editPinForm;

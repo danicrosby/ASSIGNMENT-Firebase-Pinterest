@@ -1,6 +1,9 @@
-const addPinForm = () => {
+import selectBoard from './selectBoard';
+
+const addPinForm = (uid) => {
   document.querySelector('#store').innerHTML = '';
   document.querySelector('#add-button').innerHTML = '';
+
   document.querySelector('#form-container').innerHTML = `
     <form id="submit-pin-form" class="mb-4">
       <div class="form-group">
@@ -15,6 +18,7 @@ const addPinForm = () => {
       </div>
       <button type="submit" id="submit-pin" class="btn btn-sm btn-secondary">Submit pin</button>
     </form>`;
+  selectBoard(uid);
 };
 
 export default addPinForm;

@@ -1,9 +1,12 @@
 /* eslint-disable no-alert */
 import addPinForm from '../components/forms/addPinForm';
 import { showPins } from '../components/pins';
+import { showBoards } from '../components/boards';
 import addBoardForm from '../components/forms/addBoardForm';
-import { deleteBoard } from '../helpers/data/boardData';
-import { createPin, deletePin } from '../helpers/data/pinData';
+import { createBoard, deleteBoard } from '../helpers/data/boardData';
+import { createPin, deletePin, getSinglePin } from '../helpers/data/pinData';
+import editPinForm from '../components/forms/editPinForm';
+import formModal from '../components/forms/formModal';
 
 const domEvents = (uid) => {
   document.querySelector('body').addEventListener('click', (e) => {
@@ -17,6 +20,7 @@ const domEvents = (uid) => {
 
     // SHOW ADD PIN FORM
     if (e.target.id.includes('add-pin-btn')) {
+      e.preventDefault();
       addPinForm();
     }
 
@@ -30,7 +34,7 @@ const domEvents = (uid) => {
         uid
       };
 
-      createPin(pinObject).then((pinsArray) => showPins(pinsArray));
+      createPin(pinObject, uid).then((pinsArray) => showPins(pinsArray));
     }
 
     // EDIT PIN FORM
@@ -45,7 +49,7 @@ const domEvents = (uid) => {
 
     // DELETE BOARD
     if (e.target.id.includes('delete-board')) {
-      if (window.confirm('Are you surer you want to delete this pin?')) {
+      if (window.confirm('Are you surer you want to delete this board?')) {
         const firebaseKey = e.target.id.split('--')[1];
         deleteBoard(firebaseKey, uid).then((boardsArray) => showPins(boardsArray));
       }
@@ -59,18 +63,20 @@ const domEvents = (uid) => {
     // SUBMIT BOARD FORM
     if (e.target.id.includes('submit-board')) {
       e.preventDefault();
-      const pinObject = {
+      const boardObject = {
         board_title: document.querySelector('#title').value,
         board_image: document.querySelector('#image').value,
         uid
       };
 
-      createPin(pinObject).then((pinsArray) => showPins(pinsArray));
+      createBoard(boardObject, uid).then((boardsArray) => showBoards(boardsArray));
     }
 
     // SHOW MODAL FOR ADD BOARD
     if (e.target.id.includes('edit-board-btn')) {
-      console.warn('CLICKED EDIT BOARD BUTTON', e.target.id);
+      const firebaseKey = e.target.id.split('--')[1];
+      formModal('Update Board');
+      getSinglePin(firebaseKey).then((pinObject) => editPinForm(pinObject));
     }
 
     // SUBMIT UPDATE FOR BOARD
